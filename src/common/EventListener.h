@@ -1,4 +1,0 @@
-#ifndef MUI_COMMON_EVENT_LISTENER_H_
-#define MUI_COMMON_EVENT_LISTENER_H_
-
-#endif //

@@ -14,7 +14,8 @@ enum class GraphType {
 
 };
 
-typedef std::function<void(Event* event, Base* target)> EventListener;
+typedef std::function<void(Event* event, Base* target)> EventHandler;
+typedef std::shared_ptr<EventHandler> EventListener;
 typedef std::unordered_map<EventType, std::vector<EventListener>> ListenerContainer;
 
 class Base {
@@ -27,15 +28,15 @@ public:
 
     virtual bool Contains(const Point& position) = 0;
 
-    void AddEventListener(EventType event_type, std::shared_ptr<EventListener> listener);
+    void AddEventListener(EventType event_type, EventListener listener);
 
-    void RemoveEventListener(EventType event_type, std::shared_ptr<EventListener> listener);
+    void RemoveEventListener(EventType event_type, EventListener listener);
 
     void ClearEventListener(EventType event_type);
 
 private:
     GraphType type_;
-    std::unordered_map<EventType, std::vector<EventListener>> event_listeners_;
+    ListenerContainer event_listeners_;
 };
 
 NAMESPACE_END
