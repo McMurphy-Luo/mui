@@ -8,12 +8,21 @@
 #define NAMESPACE_END }
 #endif
 
-#ifdef MUI
-#ifdef SHARED_EXPORTS
+#ifdef MUI_EXPORTS
 #error you have already defined SHARED_EXPORTS
+#endif
+
+#ifdef _WIN32
+#define MUI_WIN32
+#endif
+
+#ifdef MUI
+#ifdef MUI_WIN32
+#define MUI_EXPORTS __declspec(dllexport)
+#endif
 #else
-#ifdef WIN32_
-#define SHARED_EXPORTS __declspec(dllexport)
+#ifdef MUI_WIN32
+#define SHARED_EXPORTS __declspec(dllimport)
 #endif
 #endif
 

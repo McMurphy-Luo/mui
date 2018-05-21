@@ -4,24 +4,27 @@ set(CMAKE_CXX_STANDARD 11)
 if(${UNIX})
     set(CMAKE_CXX_FLAGS "-Werror -Wall -O0 -g")
 endif(${UNIX})
-set(lib_output_dir ${PROJECT_BINARY_DIR}/build/lib)
-set(bin_output_dir ${PROJECT_BINARY_DIR}/build/test)
+set(output_dir ${PROJECT_BINARY_DIR})
+SET( CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${output_dir})
+SET( CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${output_dir})
+SET( CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG ${output_dir})
+SET( CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE ${output_dir})
+SET( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${output_dir})
+SET( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${output_dir})
+
 set(source_dir ${PROJECT_SOURCE_DIR}/src)
 set(test_source_dir ${PROJECT_SOURCE_DIR}/test)
 
 include_directories(${source_dir})
 list(APPEND source
+        ${source_dir}/common/Point.cpp
+        ${source_dir}/common/Size.cpp
+        ${source_dir}/common/Event.cpp
         ${source_dir}/graphics/Base.cpp
-        ${source_dir}/graphics/Base.h
-        ${source_dir}/graphics/Ellipse.h
         ${source_dir}/graphics/Ellipse.cpp
-        ${source_dir}/graphics/Line.h
         ${source_dir}/graphics/Line.cpp
-        ${source_dir}/graphics/Polygon.h
         ${source_dir}/graphics/Polygon.cpp
-        ${source_dir}/graphics/Rectangle.h
         ${source_dir}/graphics/Rectangle.cpp
-        ${source_dir}/graphics/Scene.h
         ${source_dir}/graphics/Scene.cpp)
 list(APPEND test_source
         ${test_source_dir}/main.cpp)
@@ -36,5 +39,5 @@ if(${WIN32})
     set_target_properties(test PROPERTIES WIN32_EXECUTABLE TRUE)
 endif(${WIN32})
 
-set_target_properties(mui PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${lib_output_dir})
+set_target_properties(mui PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${output_dir})
 set_target_properties(test PROPERTIES LINKER_LANGUAGE CXX)
