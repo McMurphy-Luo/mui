@@ -5,7 +5,7 @@
 
 NAMESPACE_BEGIN
 
-const double PI = 3.1415
+const double PI = 3.1415;
 
 NAMESPACE_END
 
