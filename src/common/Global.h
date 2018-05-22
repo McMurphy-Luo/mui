@@ -2,10 +2,11 @@
 #define MUI_GLOBAL_H_
 
 #include "../Config.h"
+#include <string>
 
 NAMESPACE_BEGIN
 
-const double PI = 3.1415;
+constexpr double PI = 3.1415;
 
 NAMESPACE_END
 

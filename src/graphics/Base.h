@@ -11,7 +11,10 @@
 NAMESPACE_BEGIN
 
 enum class GraphType {
-
+    Rectangle,
+    Ellipse,
+    Polygon,
+    Line
 };
 
 typedef std::function<void(Event* event, Base* target)> EventHandler;
@@ -24,15 +27,17 @@ public:
 
     }
 
-    GraphType Type() { return type_; }
+    GraphType Type() const { return type_; }
 
-    virtual bool Contains(const Point& position) = 0;
+    virtual bool Contains(const Point& position) const = 0;
 
     void AddEventListener(EventType event_type, EventListener listener);
 
     void RemoveEventListener(EventType event_type, EventListener listener);
 
     void ClearEventListener(EventType event_type);
+
+    void Emit(EventType event_type, Event* event_arguments);
 
 private:
     GraphType type_;

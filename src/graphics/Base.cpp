@@ -23,12 +23,25 @@ void Base::AddEventListener(EventType event_type, EventListener listener) {
 }
 
 void Base::RemoveEventListener(EventType event_type, EventListener listener) {
-    event_listeners_.erase()
+    ListenerContainer::iterator find_result = event_listeners_.find(event_type);
+    if (find_result == event_listeners_.end()) {
+        return;
+    }
+    (*find_result).second.erase(remove((*find_result).second.begin(), (*find_result).second.end(), listener), (*find_result).second.end());
 }
 
 void Base::ClearEventListener(EventType event_type) {
-
+    event_listeners_.erase(event_type);
 }
 
+void Base::Emit(EventType event_type, Event* event_arguments) {
+    ListenerContainer::iterator listeners_iterator = event_listeners_.find(event_type);
+    if (listeners_iterator == event_listeners_.end()) {
+        return;
+    }
+    for (const EventListener& item : (*listeners_iterator).second) {
+        item->operator()(event_arguments, this);
+    }
+}
 
 NAMESPACE_END

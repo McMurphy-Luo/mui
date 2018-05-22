@@ -21,22 +21,22 @@ public:
         // do nothing
     }
 
-    double_t x() { return x_; }
+    double_t X() const { return x_; }
 
-    double_t y() { return y_; }
+    double_t Y() const { return y_; }
 
-    void setX(double_t value) { x_ = value; }
+    void SetX(double_t value) { x_ = value; }
 
-    void setY(double_t value) { y_ = value; }
+    void SetY(double_t value) { y_ = value; }
 
-    void offset(double_t x, double_t y) { x_ += x; y_ += y; }
+    void Offset(double_t x, double_t y) { x_ += x; y_ += y; }
 
     double_t Distance(const Point& another) {
-        return std::sqrt(std::pow(another.x() - x(), 2) + std::pow(another.y() - y(), 2))
+        return std::sqrt(std::pow(another.X() - X(), 2) + std::pow(another.Y() - Y(), 2));
     }
 
     Point Middle(const Point& another) {
-        return Point((x() + another.x()) / 2, (y() + another.y()) / 2);
+        return Point((X() + another.X()) / 2, (Y() + another.Y()) / 2);
     }
 
 private:
