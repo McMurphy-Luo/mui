@@ -10,6 +10,11 @@ NAMESPACE_BEGIN
 bool ParseColorFromString(const Utf8String& target, Color& output);
 
 class Color {
+
+
+};
+
+class ColorF {
 public:
     Color(double_t red, double_t green, double_t blue, double_t alpha)
         red_(red),

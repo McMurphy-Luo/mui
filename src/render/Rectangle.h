@@ -12,7 +12,7 @@ public:
     explicit RectangleRender(const Rectangle& target);
 
 public:
-    virtual 
+    virtual Render()
 
 
 };

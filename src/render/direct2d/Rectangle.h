@@ -5,5 +5,4 @@
 
 
 
-
 #endlf // MUI_RENDER_DIRECT2D_RECTANGLE_H_
