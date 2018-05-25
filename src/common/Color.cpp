@@ -13,10 +13,6 @@ bool ParseColorFromString(const Utf8String& target, Color& output) {
     double green = 0;
     double blue = 0;
     double alpha = 0;
-
-    
-    
-
     return true;
 }
 

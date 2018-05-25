@@ -6,25 +6,39 @@
 
 NAMESPACE_BEGIN
 
-class Ellipse: public Base {
+class EllipseF : public GraphF {
+    virtual bool contains(PointF target);
+};
+
+class Ellipse: public Graph {
 public:
-    Ellipse(Point center, double_t x, double_t y):
+    Ellipse(Point center, int x, int y):
         center_(center),
         x_(x),
         y_(y){
-
     }
+
+    virtual bool contains(Point target) {
+        if (X() == 0) {
+
+        }
+        if (Y() == 0) {
+
+        }
+        
+    }
+
 
     Point Center() const { return center_; }
 
-    double_t X() const { return x_; }
+    int X() const { return x_; }
 
-    double_t Y() const { return y_;  }
+    int Y() const { return y_;  }
 
 private:
     Point center_;
-    double_t x_;
-    double_t y_;
+    int x_;
+    int y_;
 };
 
 

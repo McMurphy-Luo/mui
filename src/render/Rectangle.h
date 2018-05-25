@@ -3,20 +3,23 @@
 
 #include "../config.h"
 #include "../graphics/Rectangle.h"
+#ifdef MUI_WIN32
+#include <d2d1_1.h>
+#endif
 
 NAMESPACE_BEGIN
 
-class RectangleRender {
+#ifdef MUI_WIN32
+IRectangleRender* GetRectangleRender(ID2D1RenderTarget* render_target);
+#endif
+
+class IRectangleRender {
+private:
+    explicit IRectangleRender(const Rectangle& target);
 
 public:
-    explicit RectangleRender(const Rectangle& target);
-
-public:
-    virtual Render()
-
-
+    virtual Render() = 0;
 };
-
 
 NAMESPACE_END
 

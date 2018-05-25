@@ -6,11 +6,17 @@
 
 NAMESPACE_BEGIN
 
-typedef std::string Utf8String;
+class Utf8String {
+public:
+    explicit Utf8String(std::string source);
 
-std::size_t CharacterCount(const Utf8String& target);
+    std::size_t CharacterCount() const;
 
-int CharAt(const Utf8String& target, std::size_t character_index);
+    int CharAt(std::size_t character_index) const;
+
+private:
+    std::string buffer_;
+};
 
 NAMESPACE_END
 

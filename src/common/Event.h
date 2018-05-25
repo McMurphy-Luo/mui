@@ -51,11 +51,6 @@ private:
     MouseButton button_;
 };
 
-class KeyboardEvent : public Event {
-public:
-    KeyboradEvent();
-};
-
 NAMESPACE_END
 
 #endif // MUI_COMMON_EVENT_H_

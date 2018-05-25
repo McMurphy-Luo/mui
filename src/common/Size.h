@@ -32,9 +32,9 @@ public:
         // do nothing
     }
 
-    int width() const { return width_; }
+    int Width() const { return width_; }
 
-    int height() const { return height_; }
+    int Height() const { return height_; }
 
 private:
     int width_;

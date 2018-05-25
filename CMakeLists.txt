@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 11)
 if(${UNIX})
     set(CMAKE_CXX_FLAGS "-Werror -Wall -O0 -g")
 endif(${UNIX})
-set(output_dir ${PROJECT_BINARY_DIR})
+set(output_dir ${PROJECT_SOURCE_DIR}/build)
 SET( CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${output_dir})
 SET( CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${output_dir})
 SET( CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG ${output_dir})
@@ -20,12 +20,17 @@ list(APPEND source
         ${source_dir}/common/Point.cpp
         ${source_dir}/common/Size.cpp
         ${source_dir}/common/Event.cpp
+        ${source_dir}/common/Color.cpp
+        ${source_dir}/common/Utf8String.cpp
         ${source_dir}/graphics/Base.cpp
         ${source_dir}/graphics/Ellipse.cpp
         ${source_dir}/graphics/Line.cpp
         ${source_dir}/graphics/Polygon.cpp
         ${source_dir}/graphics/Rectangle.cpp
-        ${source_dir}/graphics/Scene.cpp)
+        ${source_dir}/graphics/Scene.cpp
+        ${source_dir}/render/Rectangle.cpp
+        ${source_dir}/render/direct2d/Rectangle.cpp
+        )
 list(APPEND test_source
         ${test_source_dir}/main.cpp)
 add_executable(test ${test_source})
