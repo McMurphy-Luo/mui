@@ -10,7 +10,8 @@ NAMESPACE_BEGIN
 bool ParseColorFromString(const Utf8String& target, Color& output);
 
 class Color {
-
+public:
+    Color(std::int8_t red, std::int8_t green, std::int_fast8_t blue, std::int8_t alpha);
 
 };
 

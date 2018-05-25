@@ -7,15 +7,15 @@
 
 NAMESPACE_BEGIN
 
-class Point {
+class PointF {
 public:
-    Point(double_t x, double_t y) :
+    PointF(double_t x, double_t y) :
         x_(x),
         y_(y) {
         // do nothing
     }
 
-    Point() :
+    PointF() :
         x_(0),
         y_(0) {
         // do nothing
@@ -31,17 +31,48 @@ public:
 
     void Offset(double_t x, double_t y) { x_ += x; y_ += y; }
 
-    double_t Distance(const Point& another) {
+    double_t Distance(const PointF& another) {
         return std::sqrt(std::pow(another.X() - X(), 2) + std::pow(another.Y() - Y(), 2));
     }
 
-    Point Middle(const Point& another) {
-        return Point((X() + another.X()) / 2, (Y() + another.Y()) / 2);
+    PointF Middle(const PointF& another) {
+        return PointF((X() + another.X()) / 2, (Y() + another.Y()) / 2);
     }
 
 private:
     double_t x_;
     double_t y_;
+};
+
+class Point {
+public:
+    Point(int x, int y) :
+        x_(x),
+        y_(y) {
+        // do nothing
+    }
+
+    int X() const { return x_; }
+
+    int Y() const { return y_; }
+
+    void SetX(int value) { x_ = value; }
+
+    void SetY(int value) { y_ = value; }
+
+    void Offset(int x, int y) { x_ += x; y_ += y; }
+
+    int Distance(const Point& another) {
+        return static_cast<int>(std::round(
+            std::sqrt(
+                std::pow(another.X() - X(), 2) + std::pow(another.Y() - Y(), 2)
+            )
+        ));
+    }
+       
+private:
+    int x_;
+    int y_;
 };
 
 

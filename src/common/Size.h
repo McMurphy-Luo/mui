@@ -11,7 +11,8 @@ class SizeF {
 public:
     SizeF(double_t width, double_t height):
         width_(width),
-        height_(height){
+        height_(height) {
+        // do nothing
     }
 
     double_t Width() const { return width_; }
@@ -25,15 +26,19 @@ private:
 
 class Size {
 public:
-    Size(std::int_fast32_t width, std::int_fast32_t height) :
-
-    {
-
+    Size(int width, int height) :
+        width_(width),
+        height_(height) {
+        // do nothing
     }
 
+    int width() const { return width_; }
+
+    int height() const { return height_; }
 
 private:
-
+    int width_;
+    int height_;
 };
 
 NAMESPACE_END
