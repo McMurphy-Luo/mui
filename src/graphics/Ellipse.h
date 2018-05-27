@@ -3,26 +3,18 @@
 
 #include "../Config.h"
 #include "./Base.h"
-#incldue "../common/Point.h"
+#include "../common/Point.h"
 #include "../common/Color.h"
 
 NAMESPACE_BEGIN
 
 class Ellipse : public Graphics {
 public:
-    Ellipse(Point center, int x, int y) :
+    Ellipse(Point center, int x, int y, Color border_color, Color background_color) :
+        Graphics(GraphicsType::Ellipse),
         center_(center),
         x_(x),
         y_(y) {
-    }
-
-    virtual bool contains(Point target) {
-        if (X() == 0) {
-
-        }
-        if (Y() == 0) {
-
-        }
     }
 
     Color BorderColor() const {}
@@ -39,19 +31,24 @@ public:
 
     int Y() const { return y_; }
 
+    virtual bool Contains(Point target) const override;
+
 private:
     Point center_;
     int x_;
     int y_;
+
 };
 
 class EllipseF : public GraphicsF {
 public:
-    EllipseF(PointF center, double_t x, double_t y) {
+    EllipseF(PointF center, double_t x, double_t y):
+        GraphicsF(GraphicsType::Ellipse),
+        center_(center),
+        x_(x),
+        y_(y){
 
     }
-
-    virtual bool contains(PointF target);
 
     ColorF BorderColor() const {}
 
@@ -66,6 +63,8 @@ public:
     double_t X();
 
     double_t Y();
+
+    virtual bool Contains(PointF target) const override;
 
 private:
     PointF center_;

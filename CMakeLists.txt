@@ -27,7 +27,6 @@ list(APPEND source
         ${source_dir}/graphics/Ellipse.cpp
         ${source_dir}/graphics/Line.cpp
         ${source_dir}/graphics/Rectangle.cpp
-        ${source_dir}/graphics/Scene.cpp
         ${source_dir}/render/Rectangle.cpp
         ${source_dir}/render/direct2d/Rectangle.cpp
         )
