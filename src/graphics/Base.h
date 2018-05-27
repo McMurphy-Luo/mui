@@ -2,58 +2,45 @@
 #define MUI_GRAPHICS_BASE_H_
 
 #include "../Config.h"
-#include <functional>
-#include <memory>
-#include <unordered_map>
-#include "../common/Event.h"
 #include "../common/Point.h"
+#include "./EventEmiter.h"
 
 NAMESPACE_BEGIN
 
-enum class GraphType {
+enum class GraphicsType {
     Rectangle,
     Ellipse,
-    Polygon,
     Line
 };
 
-class Base;
-
-typedef std::function<void(Event*, Base*)> EventHandler;
-typedef std::shared_ptr<EventHandler> EventListener;
-typedef std::unordered_map<EventType, std::vector<EventListener>> ListenerContainer;
-
-class Base {
+class Graphics : public EventEmiter {
 public:
-    explicit Base(GraphType type): type_(type), event_listeners_() {
-
+    Graphics(GraphicsType type) : EventEmiter() {
+        // do nothing
     }
 
-    GraphType Type() const { return type_; }
+    GraphicsType Type() const { return type_; }
 
-    void AddEventListener(EventType event_type, EventListener listener);
-
-    void RemoveEventListener(EventType event_type, EventListener listener);
-
-    void ClearEventListener(EventType event_type);
-
-    void Emit(EventType event_type, Event* event_arguments);
+    virtual bool Contains(Point target) const = 0;
 
 private:
-    GraphType type_;
-    ListenerContainer event_listeners_;
+    GraphicsType type_;
 };
 
-class GraphF : public Base {
-    virtual bool Contains(PointF target) = 0;
-};
+class GraphicsF : public EventEmiter {
+public:
+    GraphicsF(GraphicsType type) : EventEmiter() {
+        // do nothing
+    }
 
-class Graph : public Base {
-    virtual bool Contains(Point target) = 0;
+    GraphicsType Type() const { return type_; }
+
+    virtual bool Contains(PointF target) const = 0;
+
+private:
+    GraphicsType type_;
 };
 
 NAMESPACE_END
-
-
 
 #endif // MUI_GRAPHICS_BASE_H_

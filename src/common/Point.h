@@ -69,6 +69,10 @@ public:
             )
         ));
     }
+
+    Point Middle(const Point& another) {
+        return Point((X() + another.X()) / 2, (Y() + another.Y()) / 2);
+    }
        
 private:
     int x_;

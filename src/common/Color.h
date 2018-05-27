@@ -8,37 +8,61 @@
 NAMESPACE_BEGIN
 
 class Color;
+class ColorF;
 
 bool ParseColorFromString(const Utf8String& target, Color& output);
 
+bool ParseColorFromString(const Utf8String& target, ColorF& output);
+
 class Color {
 public:
-    Color(std::int8_t red, std::int8_t green, std::int8_t blue, std::int8_t alpha):
+    static Color Transparent();
+
+public:
+    Color(std::uint_fast8_t red, std::uint_fast8_t green, std::uint_fast8_t blue, std::uint_fast8_t alpha) :
         red_(red),
         green_(green),
         blue_(blue),
-        alpha_(alpha){
+        alpha_(alpha) {
         // do nothing
     }
 
-    Color(std::int8_t red, std::int8_t green, std::int8_t blue):
-        Color(red, green, blue, 1)
-        {
+    Color(std::uint_fast8_t red, std::uint_fast8_t green, std::uint_fast8_t blue) :
+        Color(red, green, blue, 100) {
         // do nothing
     }
 
-    Color(): Color(0, 0, 0) {
-
+    Color() : Color(0, 0, 0) {
+        // do nothing
     }
+
+    std::uint_fast8_t Red() { return red_; }
+
+    void SetRed(std::uint_fast8_t value) { red_ = value; }
+
+    std::uint_fast8_t Green() { return green_; }
+
+    void SetGreen(std::int_fast8_t value) { green_ = value; }
+
+    std::uint_fast8_t Blue() { return blue_; }
+
+    void SetBlue(std::int_fast8_t value) { blue_ = value; }
+
+    std::int_fast8_t Alpha() { return alpha_; }
+
+    void SetAlpha(std::int_fast8_t value) { alpha_ = value; }
 
 private:
-    std::int8_t red_;
-    std::int8_t green_;
-    std::int8_t blue_;
-    std::int8_t alpha_;
+    std::uint_fast8_t red_;
+    std::uint_fast8_t green_;
+    std::uint_fast8_t blue_;
+    std::uint_fast8_t alpha_;
 };
 
 class ColorF {
+public:
+    static ColorF transparent();
+
 public:
     ColorF(double_t red, double_t green, double_t blue, double_t alpha):
         red_(red),
@@ -54,7 +78,7 @@ public:
     }
 
     ColorF(): ColorF(0, 0, 0, 1) {
-
+        // do nothing
     }
 
     double_t Red() { return red_; }

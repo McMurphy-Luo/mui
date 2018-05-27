@@ -22,10 +22,10 @@ list(APPEND source
         ${source_dir}/common/Event.cpp
         ${source_dir}/common/Color.cpp
         ${source_dir}/common/Utf8String.cpp
+        ${source_dir}/graphics/EventEmiter.cpp
         ${source_dir}/graphics/Base.cpp
         ${source_dir}/graphics/Ellipse.cpp
         ${source_dir}/graphics/Line.cpp
-        ${source_dir}/graphics/Polygon.cpp
         ${source_dir}/graphics/Rectangle.cpp
         ${source_dir}/graphics/Scene.cpp
         ${source_dir}/render/Rectangle.cpp
