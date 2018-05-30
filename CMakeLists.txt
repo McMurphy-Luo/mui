@@ -17,18 +17,54 @@ set(test_source_dir ${PROJECT_SOURCE_DIR}/test)
 
 include_directories(${source_dir})
 list(APPEND source
-        ${source_dir}/common/Point.cpp
-        ${source_dir}/common/Size.cpp
-        ${source_dir}/common/Event.cpp
         ${source_dir}/common/Color.cpp
+        ${source_dir}/common/Color.h
+        ${source_dir}/common/Global.h
+        ${source_dir}/common/Point.cpp
+        ${source_dir}/common/Point.h
+        ${source_dir}/common/Size.cpp
+        ${source_dir}/common/Size.h
         ${source_dir}/common/Utf8String.cpp
-        ${source_dir}/graphics/EventEmiter.cpp
+        ${source_dir}/common/Utf8String.h
+
+        ${source_dir}/control/Base.cpp
+        ${source_dir}/control/Base.h
+        ${source_dir}/control/Button.cpp
+        ${source_dir}/control/Button.h
+        ${source_dir}/control/Checkbox.cpp
+        ${source_dir}/control/Checkbox.h
+        ${source_dir}/control/Event.cpp
+        ${source_dir}/control/Event.h
+        ${source_dir}/control/EventEmiter.cpp
+        ${source_dir}/control/EventEmiter.h
+        ${source_dir}/control/Icon.cpp
+        ${source_dir}/control/Icon.h
+        ${source_dir}/control/Input.cpp
+        ${source_dir}/control/Input.h
+        ${source_dir}/control/Scene.cpp
+        ${source_dir}/control/Scene.h
+        ${source_dir}/control/ScrollBar.cpp
+        ${source_dir}/control/ScrollBar.h
+        ${source_dir}/control/Select.cpp
+        ${source_dir}/control/Select.h
+        ${source_dir}/control/Text.cpp
+        ${source_dir}/control/Text.h
+
         ${source_dir}/graphics/Base.cpp
+        ${source_dir}/graphics/Base.h
         ${source_dir}/graphics/Ellipse.cpp
+        ${source_dir}/graphics/Ellipse.h
         ${source_dir}/graphics/Line.cpp
+        ${source_dir}/graphics/Line.h
+        ${source_dir}/graphics/Path.cpp
+        ${source_dir}/graphics/Path.h
         ${source_dir}/graphics/Rectangle.cpp
-        ${source_dir}/render/Rectangle.cpp
-        ${source_dir}/render/direct2d/Rectangle.cpp
+        ${source_dir}/graphics/Rectangle.h
+
+        ${source_dir}/render/Button.cpp
+        ${source_dir}/render/Button.h
+        ${source_dir}/render/direct2d/Button.h
+        ${source_dir}/render/direct2d/Button.cpp
         )
 list(APPEND test_source
         ${test_source_dir}/main.cpp)

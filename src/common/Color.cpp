@@ -3,10 +3,10 @@
 NAMESPACE_BEGIN
 
 bool ParseColorFromString(const Utf8String& target, Color& output) {
-    if (target.size() != 4 && target.size() != 5 && target.size() != 7 && target.size() != 9) {
+    if (target.CharacterCount() != 4 && target.CharacterCount() != 5 && target.CharacterCount() != 7 && target.CharacterCount() != 9) {
         return false;
     }
-    if (target.at(0) != '#') {
+    if (target.CharAt(0) != '#') {
         return false;
     }
     double red = 0;
@@ -16,5 +16,8 @@ bool ParseColorFromString(const Utf8String& target, Color& output) {
     return true;
 }
 
+bool ParseColorFromString(const Utf8String& target, ColorF& output) {
+    return true;
+}
 
 NAMESPACE_END

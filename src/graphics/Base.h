@@ -3,7 +3,6 @@
 
 #include "../Config.h"
 #include "../common/Point.h"
-#include "./EventEmiter.h"
 
 NAMESPACE_BEGIN
 
@@ -13,9 +12,9 @@ enum class GraphicsType {
     Line
 };
 
-class Graphics : public EventEmiter {
+class Graphics {
 public:
-    Graphics(GraphicsType type) : EventEmiter() {
+    Graphics(GraphicsType type) {
         // do nothing
     }
 
@@ -27,9 +26,9 @@ private:
     GraphicsType type_;
 };
 
-class GraphicsF : public EventEmiter {
+class GraphicsF{
 public:
-    GraphicsF(GraphicsType type) : EventEmiter() {
+    GraphicsF(GraphicsType type) {
         // do nothing
     }
 

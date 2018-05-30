@@ -15,21 +15,28 @@ public:
         center_(center),
         x_(x),
         y_(y) {
+        // do nothing
     }
 
-    Color BorderColor() const {}
+    Color BorderColor() const { return border_color_; }
 
-    void SetBorderColor(Color value) {}
+    void SetBorderColor(Color value) { border_color_ = value; }
 
-    Color BackgroundColor() const {}
+    Color BackgroundColor() const { return background_color_; }
 
-    void SetBackgroundColor() const {}
+    void SetBackgroundColor(Color value) { background_color_ = value; }
 
     Point Center() const { return center_; }
 
+    void SetCenter(Point position) { center_ = position; }
+
     int X() const { return x_; }
 
+    void SetX(int value) { x_ = value; }
+
     int Y() const { return y_; }
+
+    void SetY(int value) { y_ = value; }
 
     virtual bool Contains(Point target) const override;
 
@@ -37,22 +44,25 @@ private:
     Point center_;
     int x_;
     int y_;
-
+    Color border_color_;
+    Color background_color_;
 };
 
 class EllipseF : public GraphicsF {
 public:
-    EllipseF(PointF center, double_t x, double_t y):
+    EllipseF(PointF center, double_t x, double_t y, ColorF border_color, ColorF background_color):
         GraphicsF(GraphicsType::Ellipse),
         center_(center),
         x_(x),
-        y_(y){
-
+        y_(y),
+        border_color_(border_color),
+        background_color_(background_color) {
+        // do nothing
     }
 
-    ColorF BorderColor() const {}
+    ColorF BorderColor() const { return border_color_; }
 
-    void SetBorderColor() {}
+    void SetBorderColor(ColorF value) { border_color_ = value; }
 
     ColorF BackgroundColor() const {}
 
@@ -70,6 +80,8 @@ private:
     PointF center_;
     double_t x_;
     double_t y_;
+    ColorF border_color_;
+    ColorF background_color_;
 };
 
 NAMESPACE_END
