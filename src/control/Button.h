@@ -3,13 +3,20 @@
 
 #include "../Config.h"
 #include "./Base.h"
+#include "../common/Color.h"
 #include "../common/Utf8String.h"
 
 NAMESPACE_BEGIN
 
 class Button : public Base {
 public:
-    Button();
+    Button(double_t width, double_t height) :
+        text_(),
+        width_(width),
+        height_(height),
+        border_color_(ColorF::transparent()),
+        background_color_(ColorF::transparent()){
+    }
 
     void SetText(Utf8String value) { text_ = value; }
 

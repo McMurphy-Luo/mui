@@ -2,7 +2,6 @@
 #define MUI_COMMON_EVENT_H_
 
 #include "../Config.h"
-#include "./Global.h"
 
 NAMESPACE_BEGIN
 

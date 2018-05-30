@@ -2,10 +2,10 @@
 #define MUI_GRAPHICS_EVENT_EMITER_H_
 
 #include "../Config.h"
-#include "../common/Event.h"
 #include <memory>
 #include <functional>
 #include <unordered_map>
+#include "./Event.h"
 
 NAMESPACE_BEGIN
 
