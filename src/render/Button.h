@@ -1,31 +1,36 @@
-#ifndef MUI_RENDER_RECTANGLE_H_
-#define MUI_RENDER_RECTANGLE_H_
+#ifndef MUI_RENDER_BUTTON_
+#define MUI_RENDER_BUTTON_
 
-#include "../config.h"
-#include "../graphics/Rectangle.h"
+#include "../Config.h"
+#include <memory>
+#include "../control/Button.h"
 
 #ifdef MUI_WIN32
+
 #include <Windows.h>
-#include <d2d1_1.h>
-#endif
+#include <d2d1.h>
+#include <atlbase.h>
+
+#endif // MUI_WIN32
 
 NAMESPACE_BEGIN
 
-#ifdef MUI_WIN32
-std::shared_ptr<IRectangleRender> GetRectangleRender(ID2D1RenderTarget* render_target);
-#endif
+class IButtonRender;
 
-class IRectangleRender {
+#ifdef MUI_WIN32
+
+std::shared_ptr<IButtonRender> GetButtonRender(CComPtr<ID2D1RenderTarget> render_target);
+
+#endif // MUI_WIN32
+
+class IButtonRender {
 public:
-    virtual void Render(Rectangle) = 0;
-    virtual void Render(RectangleF) = 0;
+    void Render(const Button& target);
 
 protected:
-    IRectangleRender() {
-        // do nothing
-    };
+    IButtonRender();
 };
 
 NAMESPACE_END
 
-#endif // MUI_RENDER_RECTANGLE_H_
+#endif // MUI_RENDER_BUTTON_

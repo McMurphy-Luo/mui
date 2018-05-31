@@ -10,30 +10,72 @@ NAMESPACE_BEGIN
 
 class Button : public Base {
 public:
-    Button(double_t width, double_t height) :
+    Button(
+        double_t left,
+        double_t top,
+        double_t right,
+        double_t bottom,
+        ColorF border_color,
+        ColorF background_color):
         text_(),
-        width_(width),
-        height_(height),
-        border_color_(ColorF::transparent()),
-        background_color_(ColorF::transparent()){
+        left_(left),
+        top_(top),
+        right_(right),
+        bottom_(bottom)
+        border_color_(ColorF::Transparent()),
+        background_color_(ColorF::Transparent()) {
     }
+
+    void SetMinHeight() {}
+
+    void SetMaxHeight() {}
+
+    void SetMinWidth() {}
+
+    void SetMaxWidth() {}
 
     void SetText(Utf8String value) { text_ = value; }
 
     Utf8String Text() const { return text_; }
 
+    double_t Left();
+
+    double_t SetLeft();
+
+    double_t Top();
+
+    double_t SetTop();
+
+    double_t Right();
+
+    double_t SetRight();
+
+    double_t Bottom();
+
+    double_t SetBottom();
+
     double_t Width() const { return width_; }
 
     double_t Height() const { return height_; }
 
-    void SetWidth(double_t value) { width_ = value; }
+    ColorF BorderColor();
 
-    void SetHeight(double_t value) { height_ = value; }
+    void SetBorderColor();
+
+    ColorF BackgroundColor();
+
+    void SetBackgroundColor();
+
+    double_t BorderWidth();
+
+    void SetBorderWidth();
 
 private:
+    double_t left_;
+    double_t top_;
+    double_t right_;
+    double_t bottom_;
     Utf8String text_;
-    double_t width_;
-    double_t height_;
     ColorF border_color_;
     ColorF background_color_;
 };

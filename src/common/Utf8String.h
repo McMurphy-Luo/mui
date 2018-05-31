@@ -8,6 +8,10 @@ NAMESPACE_BEGIN
 
 class Utf8String {
 public:
+    Utf8String(): buffer_() {
+
+    }
+
     explicit Utf8String(std::string source) : buffer_(source) {
         // do nothing
     }

@@ -16,7 +16,7 @@ bool ParseColorFromString(const Utf8String& target, ColorF& output);
 
 class Color {
 public:
-    static Color Transparent();
+    static Color Transparent() { return Color(0, 0, 0, 100); }
 
 public:
     Color(std::uint_fast8_t red, std::uint_fast8_t green, std::uint_fast8_t blue, std::uint_fast8_t alpha) :
@@ -61,7 +61,7 @@ private:
 
 class ColorF {
 public:
-    static ColorF transparent();
+    static ColorF Transparent() { return ColorF(0, 0, 0, 1.0); }
 
 public:
     ColorF(double_t red, double_t green, double_t blue, double_t alpha):

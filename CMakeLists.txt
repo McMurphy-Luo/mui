@@ -61,6 +61,10 @@ list(APPEND source
         ${source_dir}/graphics/Rectangle.cpp
         ${source_dir}/graphics/Rectangle.h
 
+        ${source_dir}/render/Rectangle.cpp
+        ${source_dir}/render/Rectangle.h
+        ${source_dir}/render/direct2d/Rectangle.h
+        ${source_dir}/render/direct2d/Rectangle.cpp
         ${source_dir}/render/Button.cpp
         ${source_dir}/render/Button.h
         ${source_dir}/render/direct2d/Button.h

@@ -1,5 +1,5 @@
-#ifndef MUI_GLOBAL_H_
-#define MUI_GLOBAL_H_
+#ifndef MUI_COMMON_GLOBAL_H_
+#define MUI_COMMON_GLOBAL_H_
 
 #include "../Config.h"
 #include <string>
@@ -11,4 +11,4 @@ constexpr double PI = 3.1415;
 NAMESPACE_END
 
 
-#endif // MUI_GLOBAL_H_
+#endif // MUI_COMMON_GLOBAL_H_
